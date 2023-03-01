@@ -1,0 +1,157 @@
+{% extends "app_bb/base.html" %} {% load static %} {% block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/results.css'%}" />
+<script type="text/javascript">
+  submitted = true;
+  console.log(submitted);
+</script>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div
+      class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-10 gametable"
+      id="gametable"
+    >
+      <div class="jumbotron custom-jumbotron center-block">
+        <h1 class="display-4">Game Odds</h1>
+        <p>
+          note: during the offseason, we will keep matchups set to September 6,
+          2022 to display website functionality. Once the 2023 season begins,
+          functionality will return to normal.
+        </p>
+        <p class="lead">
+          Below are your custom model's results for today's games with verified
+          lineups. Lineups update every five minutes, and are first loaded at
+          11AM Eastern. To see future games, come back later and run your model
+          again.
+        </p>
+        <hr class="my-4" />
+      </div>
+      {% for gameresult in gameresults %}
+      <table class="table">
+        <thead class="headers">
+          <tr>
+            <th scope="col" class="header-text datetimecontainer"></th>
+            <th scope="col" class="header-text" id="game-number">
+              <span id="loop-num">G</span><span class="small-space">AME</span
+              ><span class="small-space"> </span
+              ><span id="game-number">{{ forloop.counter }}</span>
+            </th>
+            <th scope="col" class="header-text citycontainer">TEAM</th>
+            <th scope="col" class="header-text pitchercontainer">STARTER</th>
+            <th scope="col" class="header-text">
+              WIN<span class="small-space"> </span>%
+            </th>
+            <th scope="col" class="header-text">ODDS</th>
+            <th scope="col" class="header-text powercontainer">
+              POW<span class="small-space">ER</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="awayrow">
+            <td scope="row" class="align-middle">{{gameresult.gametime}}</td>
+            <td class="align-middle">
+              <span class="coloredcircle" id="awaycoloredcircle">&#11044;</span>
+              <span class="small-appear"><br /></span>
+              {{ gameresult.awayteam }}
+            </td>
+            <td class="align-middle teamcontainer city">
+              {{ gameresult.awaycity }}
+            </td>
+            <td class="align-middle pitchercontainer">
+              {{ gameresult.awaypitcher }}
+            </td>
+            <td class="align-middle">{{ gameresult.awaywinpercent }}</td>
+            <td class="align-middle">{{ gameresult.awayamericanodds }}</td>
+            <td class="align-middle">{{ gameresult.awaypowerscore }}</td>
+          </tr>
+          <tr id="homerow">
+            <td scope="row" class="align-middle datetimecontainer homevalue">
+              {{gameresult.gamedate}}
+            </td>
+            <td class="align-middle homevalue">
+              <span class="coloredcircle" id="homecoloredcircle">&#11044;</span>
+              <span class="small-appear"><br /></span>
+              {{ gameresult.hometeam }}
+            </td>
+            <td class="align-middle city homevalue">
+              {{ gameresult.homecity }}
+            </td>
+            <td class="align-middle homevalue">{{ gameresult.homepitcher }}</td>
+            <td class="align-middle homevalue">
+              {{ gameresult.homewinpercent }}
+            </td>
+            <td class="align-middle homevalue">
+              {{ gameresult.homeamericanodds }}
+            </td>
+            <td class="align-middle homevalue">
+              {{ gameresult.homepowerscore }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      {% endfor %}
+      <!-- variance helper info, should only display if there is a matchup. this if statement likely rendered useless now that blank matchups will be shown, but whatever -->
+      <!-- {% if gameresults %} -->
+      <div class="card-body info-card-body white-body">
+        <h5 class="card-title info-title dark-title">
+          Should I Adjust My Variance Value?
+        </h5>
+        <p class="card-text info-text dark-text">
+          Variance is the degree of randomness you selected. You may need to
+          experiment with the variance value when you first construct your model
+          until you find a value that works well.
+          <br /><br />
+
+          If your results are showing too many 'heavy favorites' (70% to win or
+          stronger) with very few games that are close to 50-50, consider
+          increasing your variance value and running your model again.
+          <br /><br />
+
+          If your results are showing too many 'toss-ups' (both teams close to
+          50% to win) with very few games that have a strong favorite, consider
+          decreasing your variance value and running your model again.
+        </p>
+      </div>
+      <!-- {% endif %} -->
+      <div class="card-body info-card-body white-body">
+        <h5 class="card-title info-title dark-title">What is POW/POWER?</h5>
+        <p class="card-text info-text dark-text">
+          POWER is a rating of how good a team is for a particular day, based on
+          the user-built model and the team's lineup, starting pitcher, and
+          bullpen. POWER is independent of opponent, home-field advantage,
+          batters on the team who are out of the day's lineup, and other
+          starting pitchers on the team. A power score of 100 is equivalent to a
+          perfectly average team.
+          <br /><br />
+
+          POWER essentially answers the question of 'how good is this team
+          expected to be for today's game'? For example, on days where Jacob
+          deGrom does not start, he does not affect New York's POWER.
+          <br /><br />
+
+          POWER is a measure of the strength of a team's lineup, starting
+          pitcher, and bullpen, calculated using the user-selected general model
+          criteria and the user-selected weights for each statistic. Because
+          POWER is independent of home-field advantage, it is possible for an
+          away team with higher POWER to be an underdog.
+        </p>
+      </div>
+      <div class="card-body info-card-body white-body">
+        <h5 class="card-title info-title dark-title">
+          What does DNQ (not enough IP) mean?
+        </h5>
+        <p class="card-text info-text dark-text">
+          When a starting pitcher is listed as "DNQ (not enough IP) -
+          replacement level stats used instead," this means that the pitcher has
+          not qualified (at least ~10IP) in any of the last three seasons. The
+          starting pitcher is assumed to be replacement level. A similar method
+          is used for batters who have not qualified. For a complete
+          mathematical description, you can read about
+          <a class="hyper" href="{% url 'info' %}">how the model works</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{% static 'js/results.js'%}"></script>
+{% endblock %}

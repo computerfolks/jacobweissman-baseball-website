@@ -1,0 +1,160 @@
+{% extends "app_bb/base.html" %} {% load static %} {% block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/info.css'%}" />
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div class="jumbotron custom-jumbotron center-block">
+        <h1 class="display-4">How It Works</h1>
+        <p class="lead">
+          Here is what is going on under the hood.<br />(warning: math ahead)
+        </p>
+        <hr class="my-4" />
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+      <div class="card-body info-card-body">
+        <h5 class="card-title info-title">The Nuts and Bolts</h5>
+        <p class="card-text info-text">
+          Every day, data is gathered for each batter and pitcher in the league.
+          For every statistic, we calculate the mean (average) and standard
+          deviation (how “spread out” the data is). Each player is assigned a
+          z-score for each statistic, which is a measure of how many standard
+          deviations above/below the mean they are in that given statistic. The
+          same is done for aggregate team fielding data as well as team bullpen
+          data.<br /><br />
+
+          When a user submits their selections in Workshop, the model compiles
+          the user’s custom results. For each matchup with confirmed lineups,
+          the model calculates game results. First, the model scans through the
+          home team’s lineup, and for each batter, multiplies the batter’s
+          z-score in each statistic by the user-selected weight for that
+          statistic.<br /><br />
+
+          The result is added to a running total. After scanning through the
+          nine batters, the final sum is multiplied by the user selected
+          “Batting % Weight”. This process is repeated for each season (2022,
+          2021, 2020) and weighted according to user-selected season weights.
+          The same is done for baserunning, pitching, and fielding.<br /><br />
+
+          For pitching, there are two running totals, one for the starting
+          pitcher and one for the bullpen (note: the bullpen does not use 3-year
+          weighted averages, and only uses current season totals). These sums
+          are weighted according to how many innings the user assigned the
+          starting pitcher.<br /><br />
+
+          At the end of the above process, the home team and away team each have
+          a power score, which is simply a measure of the final sum of the
+          z-score in each statistic, weighted by user-selected category weights.
+          The power score (which is independent of home-field advantage) is set
+          to a scale of 100 and displayed to the user as “POWER” on the Results
+          page.<br /><br />
+
+          Each team’s power score is adjusted for user-selected home-field
+          advantage and then used, along with the user-selected variance, to run
+          100,000 simulations of the matchup. Each team is assigned a winning %
+          based on the number of simulations they win.<br /><br />
+        </p>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+      <div class="card-body info-card-body" id="notes-body">
+        <h5 class="card-title info-title" id="notes-title">Important Notes</h5>
+        <p class="card-text info-text" id="notes-text">
+          You may have noticed that in the workshop page, some statistics have a
+          blue minus next to them. This signifies a statistic where a negative
+          z-score (in other words, having a lower value than your peers) is
+          favorable. For example, for a pitcher, it is better to have a lower
+          HR/9 value than your peers. As a result, the z-scores in this category
+          are negated. If Jacob deGrom is two standard deviations lower than the
+          mean in HR/9, he is assigned a z-score value of +2 instead of -2.
+          <br /><br />
+
+          Data is only collected for batters with more than ~50 PA’s in a season
+          and pitchers with more than ~10IP. For seasons where a player did not
+          meet these thresholds, their z-score is automatically assigned to be 0
+          for each statistic. This means if a lineup contains eight players who
+          played in 2021 and one player who did not play in 2021, only 8 batters
+          will be able to “contribute” to the 2021 sum while one player will
+          have a neutral impact. If a player has never met these thresholds in
+          any of the last three seasons (~50 PA's for batters, ~10IP for
+          pitchers), the player is assumed to be replacement level and assigned
+          a z-score of -1 for all seasons in all statistics (such starting
+          pitchers are labelled
+          <span id="dnq">"DNQ"</span>).<br /><br />
+          Unfortunately, certain pitching statistics are only available for
+          individual pitchers and are not available for bullpens. This includes
+          the following categories: Average Distance, xAVG, xERA, EV95+%, kwERA,
+          SLG %, xSLG, Sweet Spot %, tERA, wOBA, and xwOBA . As a substitute,
+          the other statistics the user has selected, and which are available
+          for the bullpen, will be proportionally scaled to reach 100% for the
+          bullpen.
+        </p>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+      <div class="card-body info-card-body">
+        <h5 class="card-title info-title">An Example</h5>
+        <p class="card-text info-text">
+          Let’s illustrate how the model operates. <br /><br />
+
+          Each day, Jacob deGrom’s K% is gathered. Suppose for a given day his
+          2022 K% is 45%. This K% is compared to all starting pitchers’ K% using
+          mean and standard deviation, and deGrom is found to be 3.5 standard
+          deviations above the mean. His z-score in the K% statistic is saved as
+          3.5. The process is repeated for his 2021 K% z-score, which is 2.5,
+          and 2020 K% z-score, which is 2. The New York bullpen data is gathered
+          as well, and the bullpen is determined to be one standard deviation
+          below the mean as compared to other bullpens, for a z-score in the K%
+          statistic of -1. <br /><br />
+
+          A user fills out their custom weights in Workshop and assigns 100%
+          category importance to pitching and 0% to batting, baserunning, and
+          fielding. The user decides there should be no home-field advantage,
+          auto 3-year weighted averages, and the starter should be expected to
+          have 5 IP. The user also assigns 100% of pitching importance to K%.<br /><br />
+
+          Jacob deGrom’s 2022 z-score of 3.5 is multiplied by the 60% 2022
+          season-weight value, 2021 z-score of 2.5 is multiplied by the 28% 2021
+          season-weight value, and 2020 z-score of 2 is multiplied by the 12%
+          2020 season-weight value. The result is a sum of 3.04, which is
+          multiplied by (5/9), since he is only expected to complete 5 of the
+          innings in a 9-inning game. This equals 1.69, and is added to the
+          bullpen z-score of -1 * (4/9), since the bullpen is expected to
+          complete the last 4 innings. The result is New York having an unscaled
+          power-score of 1.24. This result, along with the opponent’s
+          power-score and the user-selected variance, is used to simulate the
+          matchup and determine each team’s winning %.
+        </p>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+      <div class="card-body info-card-body white-body" id="confused-body">
+        <h5 class="card-title info-title dark-title" id="confused-title">
+          Confused?
+        </h5>
+        <p class="card-text info-text dark-text" id="confused-text">
+          First of all, you do not need to understand how everything works in
+          order to use the model.<br /><br />
+
+          Try reading through our
+          <a href="{% url 'beginner' %}">beginner tips</a> for a quick overview
+          of some common questions.<br /><br />
+
+          Googling what you don't know is always a good idea.<br /><br />
+
+          Finally, you can always reach out to me at
+          <a class="email-link-primary" href="mailto: compfolks@gmail.com"
+            >compfolks@gmail.com</a
+          >
+          or on twitter
+          <a class="twitter-link-primary" href="https://twitter.com/CompFolks"
+            >@compfolks</a
+          >
+          and I would be happy to answer questions.<br /><br />
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,179 @@
+:root {
+  --main-dark-color: #050814;
+  --main-light-color: #ebedf9;
+  --main-primary-color: #881337;
+  --main-primary-darker-color: #6d0f2c;
+  --main-secondary-color: #99f6e4;
+  --main-secondary-darker-color: #7ac5b6;
+}
+
+@media (min-width: 300px) {
+  th {
+    font-size: 0.55rem;
+  }
+  td {
+    font-size: 0.55rem;
+  }
+  .pitchercontainer {
+    width: 25%;
+  }
+  .citycontainer {
+    width: 22%;
+  }
+  .datetimecontainer {
+    width: 14%;
+  }
+  .powercontainer {
+    width: 12%;
+  }
+  .small-space {
+    display: none;
+  }
+  .small-appear {
+    display: inline;
+  }
+  #awayrow {
+    height: 70px;
+  }
+  #homerow {
+    height: 70px;
+  }
+}
+
+@media (min-width: 370px) {
+  th {
+    font-size: 0.6rem;
+  }
+  td {
+    font-size: 0.6rem;
+  }
+}
+
+@media (min-width: 430px) {
+  th {
+    font-size: 0.7rem;
+  }
+  td {
+    font-size: 0.7rem;
+  }
+  #awayrow {
+    height: 68px;
+  }
+  #homerow {
+    height: 68px;
+  }
+}
+
+@media (min-width: 768px) {
+  th {
+    font-size: 0.8rem;
+  }
+  td {
+    font-size: 0.8rem;
+  }
+  .small-space {
+    display: inline;
+  }
+  .small-appear {
+    display: none;
+  }
+  #awayrow {
+    height: 76px;
+  }
+  #homerow {
+    height: 76px;
+  }
+}
+
+@media (min-width: 992px) {
+  th {
+    font-size: 0.9rem;
+  }
+  td {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  th {
+    font-size: 1rem;
+  }
+  td {
+    font-size: 1rem;
+  }
+  #awayrow {
+    height: 90px;
+  }
+  #homerow {
+    height: 90px;
+  }
+}
+
+/* round the corners */
+th:first-of-type {
+  border-top-left-radius: 5px;
+}
+th:last-of-type {
+  border-top-right-radius: 5px;
+}
+/* tr:last-of-type td:first-of-type {
+  border-bottom-left-radius: 5px;
+}
+tr:last-of-type td:last-of-type {
+  border-bottom-right-radius: 5px;
+} */
+
+.small-space {
+  color: #6d0f2c;
+  color: var(--main-primary-darker-color);
+}
+
+#awayrow {
+  /* background-color: #95979c; */
+  background-color: #4f515a;
+  /* background-color: #373943; */
+}
+
+#homerow {
+  /* background-color: #95979c; */
+  /* background-color: #fafafa; */
+  background-color: #37393f;
+  /* background-color: #4f515a; */
+}
+
+/* .homevalue {
+  color: var(--main-dark-color);
+} */
+
+.table {
+  table-layout: fixed;
+}
+
+.singlegame {
+  margin-top: 3em;
+}
+
+.headers {
+  background-color: #ebedf9;
+  background-color: var(--main-light-color);
+}
+
+.header-text {
+  color: #6d0f2c;
+  color: var(--main-primary-darker-color);
+}
+
+#game-number {
+  color: #050814;
+  color: var(--main-dark-color);
+}
+
+#loop-num {
+  color: #6d0f2c;
+  color: var(--main-primary-darker-color);
+}
+
+.hyper {
+  color: #050814;
+  color: var(--main-dark-color);
+}

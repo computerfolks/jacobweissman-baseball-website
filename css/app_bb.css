@@ -1,0 +1,294 @@
+:root {
+  --main-dark-color: #050814;
+  --main-light-color: #ebedf9;
+  --main-primary-color: #881337;
+  --main-primary-darker-color: #6d0f2c;
+  --main-secondary-color: #99f6e4;
+  --main-secondary-darker-color: #7ac5b6;
+}
+
+* {
+  font-family: "Akshar", sans-serif;
+  color: #ebedf9;
+  color: var(--main-light-color);
+}
+
+@media (min-width: 300px) {
+  .nav-link {
+    font-size: 0.65rem;
+    padding-right: 0.2rem !important;
+    padding-left: 0.2rem !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .nav-link {
+    font-size: 0.75rem;
+    padding-right: 0.4rem !important;
+    padding-left: 0.4rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-link {
+    font-size: 1em;
+    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+body {
+  background-color: #050814;
+  background-color: var(--main-dark-color);
+}
+
+.navbar-custom {
+  padding-left: 1em;
+  background-color: #881337;
+  background-color: var(--main-primary-color);
+  border-bottom: 0.1em solid #ebedf9;
+  border-bottom: 0.1em solid var(--main-light-color);
+}
+
+.nav-link {
+  color: #ebedf9;
+  color: var(--main-light-color);
+  background-color: #881337;
+  background-color: var(--main-primary-color);
+}
+
+.nav-link:hover {
+  color: #bcbec7;
+  background-color: #881337;
+  background-color: var(--main-primary-color);
+}
+
+.bigbrand-custom {
+  color: #99f6e4;
+  color: var(--main-secondary-color);
+  background-color: #881337;
+  background-color: var(--main-primary-color);
+}
+
+.bigbrand-custom:hover {
+  color: #7ac5b6;
+  color: var(--main-secondary-darker-color);
+  background-color: #881337;
+  background-color: var(--main-primary-color);
+}
+
+.custom-footer-right {
+  background-color: transparent;
+}
+
+.custom-footer-right-link {
+  text-decoration: none;
+  color: #ebedf9;
+  color: var(--main-light-color);
+}
+
+.custom-footer-right-link:hover {
+  text-decoration: none;
+  color: #ebedf9;
+  color: var(--main-light-color);
+}
+
+.custom-jumbotron {
+  background-color: #050814;
+  background-color: var(--main-dark-color);
+  text-align: center;
+  margin-top: 8em;
+  margin-bottom: 5em;
+}
+
+.jumbo-subtext {
+  background-color: #050814;
+  background-color: var(--main-dark-color);
+  text-align: center;
+  margin-bottom: 3em;
+  color: #99f6e4;
+  color: var(--main-secondary-color);
+}
+
+.lead {
+  color: #99f6e4;
+  color: var(--main-secondary-color);
+  font-size: 1.5em;
+}
+
+.my-4 {
+  color: #ebedf9;
+  color: var(--main-light-color);
+}
+
+.display-4 {
+  font-size: 5em;
+}
+
+.custom-primary-btn {
+  background-color: #881337;
+  background-color: var(--main-primary-color);
+  border-color: #881337;
+  border-color: var(--main-primary-color);
+}
+
+.custom-primary-btn:hover {
+  background-color: #6d0f2c;
+  background-color: var(--main-primary-darker-color);
+  border-color: #6d0f2c;
+  border-color: var(--main-primary-darker-color);
+}
+
+.custom-primary-btn:focus {
+  background-color: #6d0f2c;
+  background-color: var(--main-primary-darker-color);
+  border-color: #6d0f2c;
+  border-color: var(--main-primary-darker-color);
+}
+
+/* card related code */
+.custom-intro-card {
+  background-color: #ebedf9;
+  background-color: var(--main-light-color);
+}
+
+.card-intro-text {
+  color: #881337;
+  color: var(--main-primary-color);
+}
+
+.card-intro-text-p {
+  color: #050814;
+  color: var(--main-dark-color);
+}
+
+.custom-title {
+  color: #ebedf9;
+  color: var(--main-light-color);
+  text-align: center;
+  font-size: 5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.question-header {
+  font-size: 1.6em;
+  color: #99f6e4;
+  color: var(--main-secondary-color);
+}
+
+.answer-header {
+  color: #ebedf9;
+  color: var(--main-light-color);
+}
+
+.in-link {
+  color: #99f6e4;
+  color: var(--main-secondary-color);
+}
+
+.in-link:hover {
+  color: #99f6e4;
+  color: var(--main-secondary-color);
+}
+
+.in-link:focus {
+  color: #99f6e4;
+  color: var(--main-secondary-color);
+}
+
+.question-answer {
+  background-color: #373943;
+  border-radius: 5px;
+}
+
+.alt-question-answer {
+  background-color: #212228;
+}
+
+.info-title {
+  color: #99f6e4;
+  color: var(--main-secondary-color);
+}
+
+.email-link {
+  color: #99f6e4;
+  color: var(--main-secondary-color);
+}
+
+.email-link:hover {
+  color: #7ac5b6;
+  color: var(--main-secondary-darker-color);
+}
+
+.email-link:focus {
+  color: #7ac5b6;
+  color: var(--main-secondary-darker-color);
+}
+
+.email-link-primary {
+  color: #881337;
+  color: var(--main-primary-color);
+}
+
+.email-link-primary:hover {
+  color: #6d0f2c;
+  color: var(--main-primary-darker-color);
+}
+
+.email-link-primary:focus {
+  color: #6d0f2c;
+  color: var(--main-primary-darker-color);
+}
+
+.twitter-link {
+  color: #99f6e4;
+  color: var(--main-secondary-color);
+}
+
+.twitter-link:hover {
+  color: #7ac5b6;
+  color: var(--main-secondary-darker-color);
+}
+
+.twitter-link:focus {
+  color: #7ac5b6;
+  color: var(--main-secondary-darker-color);
+}
+
+.info-text {
+  color: #ebedf9;
+  color: var(--main-light-color);
+}
+
+.info-card-body {
+  background-color: #373943;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+#notes-body {
+  background-color: #6d0f2c;
+  background-color: var(--main-primary-darker-color);
+}
+
+.white-body {
+  background-color: #ebedf9;
+  background-color: var(--main-light-color);
+}
+
+.dark-title {
+  color: #050814;
+  color: var(--main-dark-color);
+}
+
+.dark-text {
+  color: #050814;
+  color: var(--main-dark-color);
+}

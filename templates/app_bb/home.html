@@ -1,0 +1,204 @@
+{% extends "app_bb/base.html" %} {% load static %} {% block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css'%}" />
+<div class="container">
+  <div class="row">
+    <div class="jumbotron custom-jumbotron center-block">
+      <h1 class="display-4">Build-A-Model by Comp Folks</h1>
+      <p class="lead">
+        For the fan who knows baseball - but doesn't know coding.
+      </p>
+      <a
+        class="btn btn-primary btn-lg custom-primary-btn"
+        href="{% url 'workshop' %}"
+        role="button"
+        >Start Now</a
+      >
+      <hr class="my-4" />
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 cards">
+      <div class="card bg-dark text-white">
+        <img
+          src="{% static 'images/Image 4-28-22 at 2.11 PM.jpg'%}"
+          class="card-img card-img-custom"
+          alt="..."
+        />
+        <div class="card-img-overlay">
+          <h1 class="card-title card-title-custom card-title-one">
+            You just need an
+            <span class="card-title-one-inner">opinion.</span>
+          </h1>
+          <p class="card-text card-text-custom card-text-one">
+            Is exit velocity most important?<br />Getting on base?
+          </p>
+          <a
+            class="btn btn-primary btn-lg custom-secondary-btn"
+            href="{% url 'beginner' %}"
+            role="button"
+            >Beginner Tips</a
+          >
+        </div>
+      </div>
+      <div class="card bg-dark text-white">
+        <img
+          src="{% static 'images/Image 4-28-22 at 2.21 PM.jpg'%}"
+          class="card-img card-img-custom"
+          alt="..."
+        />
+        <div class="card-img-overlay">
+          <h1 class="card-title card-title-custom card-title-two">
+            We do the <span class="card-title-two-inner">hard part.</span>
+          </h1>
+          <p class="card-text card-text-custom card-text-two">
+            Automatically run.
+            <br />
+            No stress. No coding.
+          </p>
+          <a
+            class="btn btn-primary btn-lg custom-secondary-btn"
+            href="{% url 'info' %}"
+            role="button"
+            >How It Works</a
+          >
+        </div>
+      </div>
+      <div class="card bg-dark text-white">
+        <img
+          src="{% static 'images/Image 4-28-22 at 2.29 PM.jpg'%}"
+          class="card-img card-img-custom"
+          alt="..."
+        />
+        <div class="card-img-overlay">
+          <h1 class="card-title card-title-custom card-title-three">
+            Take your <span class="card-title-three-inner">swing.</span>
+          </h1>
+          <p class="card-text card-text-custom card-text-three">
+            You make the rules.
+            <br />We do the rest.<br />
+          </p>
+          <a
+            class="btn btn-primary btn-lg custom-secondary-btn"
+            href="{% url 'workshop' %}"
+            role="button"
+            >Build Now</a
+          >
+        </div>
+      </div>
+      <!-- <h3 class="mb-3 quote">
+        "How Can You Not Be Romantic About (Building Your Own) Baseball
+        (Model)?"
+      </h3>
+      <p>- Billy Beane (kind of)</p> -->
+    </div>
+
+    <div
+      class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 right-side-content"
+    >
+      <div class="card-padding">
+        <div class="card mb-3 custom-step-card custom-step-card-about">
+          <div class="card-header custom-step-card-header">GET IN TOUCH</div>
+          <div class="card-body">
+            <h5 class="card-title custom-step-card-title">
+              COMMENTS? REQUESTS?
+            </h5>
+            <p class="card-text custom-card-text">
+              I would be happy to hear your input! Please contact me at
+              <a class="email-link" href="mailto: compfolks@gmail.com"
+                >compfolks@gmail.com</a
+              >. <br /><br />
+              Follow us on twitter
+              <a class="twitter-link" href="https://twitter.com/CompFolks"
+                >@compfolks</a
+              >
+              for all the latest!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card custom-intro-card mt-5 mb-0">
+        <div class="card-body custom-intro-card">
+          <h5 class="card-title card-intro-text">
+            Welcome to the New Age of Analytics Accessibility
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted card-intro-text-p">
+            CompFolks - Built by Jacob Weissman
+          </h6>
+          <p class="card-text card-intro-text-p">
+            The field of baseball analytics is an embarrassment of riches. We
+            have at our fingertips endless statistics for every pitch, batted
+            ball, and player. Yet utilizing all of this information is voodoo
+            for the common fan. Only experts have the tools to build models and
+            predict games, and they provide no explanation of how their black
+            boxes operate. Fans are left unaware and unfulfilled.
+          </p>
+          <p class="card-text card-intro-text-p">
+            No longer. Behold the dawn of a new era, where building a complex
+            model is so easy, even a scorecard-keeping geezer could do it. The
+            common fan now has dozens of variables at their disposal. Just fill
+            out what you want to consider in your model, provide the weights (in
+            other words, importance), and sit back as we calculate the game odds
+            for you.
+          </p>
+        </div>
+      </div>
+      <div class="step-cards">
+        <div class="card-padding">
+          <div class="card mb-3 custom-step-card">
+            <div class="card-header custom-step-card-header">STEP 1</div>
+            <div class="card-body">
+              <h5 class="card-title custom-step-card-title">
+                SELECT YOUR CATEGORIES
+              </h5>
+              <p class="card-text custom-card-text">
+                Choose from a vast array of basic, advanced, pitch-tracking, and
+                batted-ball statistics.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card-padding">
+          <div class="card mb-3 custom-step-card">
+            <div class="card-header custom-step-card-header">STEP 2</div>
+            <div class="card-body">
+              <h5 class="card-title custom-step-card-title">
+                CHOOSE YOUR WEIGHTS
+              </h5>
+              <p class="card-text custom-card-text">
+                Fill out how heavily each statistic should be weighed when the
+                game results are calculated.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card-padding">
+          <div class="card mb-3 custom-step-card">
+            <div class="card-header custom-step-card-header">STEP 3</div>
+            <div class="card-body">
+              <h5 class="card-title custom-step-card-title">CLICK RUN</h5>
+              <p class="card-text custom-card-text">
+                The easy part! We will collect all the data, do the
+                computations, and provide the game results.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card-padding">
+          <div class="card mb-3 custom-step-card">
+            <div class="card-header custom-step-card-header">STEP 4</div>
+            <div class="card-body">
+              <h5 class="card-title custom-step-card-title">VIEW AND SHARE</h5>
+              <p class="card-text custom-card-text">
+                View the day's game odds according to your model, share with
+                friends, and enjoy the games.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

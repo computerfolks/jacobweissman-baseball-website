@@ -1,0 +1,124 @@
+{% extends "app_bb/base.html" %} {% load static %} {% block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/beginner.css'%}" />
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div class="jumbotron custom-jumbotron center-block">
+        <h1 class="display-4">About</h1>
+        <p class="lead">Thank you for using the site!</p>
+        <hr class="my-4" />
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4 question-answer">
+          <h6 class="mb-3 question-header">Hi, I'm Jacob Weissman</h6>
+          <p class="answer-header">
+            I am a computer science major at Queens College CUNY, a huge sports
+            fan, and a math nerd. I am the most hardcore believer in analytics:
+            process over results, throw out the eye test, clutch is fake, etc.
+            My hot take: when it comes to baseball, the statistics are more
+            interesting than the sport itself. Unless it's a New York team, I
+            can barely last through a game.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4 alt-question-answer">
+          <h6 class="mb-3 question-header">Why I Built This Website</h6>
+          <p class="answer-header">
+            I had always wanted to build my own model to predict games. There is
+            nothing cooler than casually dropping "well, my model loves
+            Baltimore today" in a conversation. About a year ago, I built a
+            baseball model, at which point I realized that the hard work
+            (scraping the data, gathering the matchups, and building the
+            classes) is basically the same for all models. The last bit, which
+            is the fun part, is where personal opinion comes into play. Why not
+            make sports modeling available to everyone by doing the hard part
+            myself, and providing an interface for everyone to do the fun part?
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4 question-answer">
+          <h6 class="mb-3 question-header">Thank You</h6>
+          <p class="answer-header">
+            This project was made easier thanks to the pybaseball library taking
+            care of a nice chunk of scraping. Photo credits to Antoine Schibler
+            ("You Just Need An Opinion."), Daiji Umemoto ("We Do The Hard
+            Part."), Steve Pancrate ("Take Your Swing."), and Joel Muniz ("Your
+            Results Await You."). Photoshop and image processing credits to Seth
+            Elefant; for inquiries, reach out to
+            <a class="email-link" href="mailto: sethelefant93@yahoo.com"
+              >sethelefant93@yahoo.com</a
+            >.
+          </p>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 alt-question-answer">
+          <h6 class="mb-3 question-header">Spread The Word</h6>
+          <p class="answer-header">
+            If you enjoy using my website, tell your friends about us!!! The
+            more people that use the website, the more motivation I have to put
+            my time and energy into building out the website with great
+            features.
+          </p>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 question-answer">
+          <h6 class="mb-3 question-header">Future Features</h6>
+          <p class="answer-header">
+            I have so many exciting ideas to develop, including custom
+            player-rankings, an advanced single-game mode (where you can custom
+            select every batter in the lineup and custom assign innings to
+            individual pitchers), and plenty more. I would also love to expand
+            this concept to other major sports. Stay tuned!
+          </p>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 alt-question-answer">
+          <h6 class="mb-3 question-header">Contact Us</h6>
+          <p class="answer-header">
+            If you have any feedback or questions, please let me know by
+            reaching out to
+            <a class="email-link" href="mailto: compfolks@gmail.com"
+              >compfolks@gmail.com</a
+            >. Specific requests for future changes are welcome and will always
+            be considered. If you want something added, just ask. Follow us on
+            twitter
+            <a class="twitter-link" href="https://twitter.com/CompFolks"
+              >@compfolks</a
+            >
+            for all the latest!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+      <div class="card-body info-card-body white-body" id="confused-body">
+        <h5 class="card-title info-title dark-title" id="confused-title">
+          DISCLAIMER
+        </h5>
+        <p class="card-text info-text dark-text" id="confused-text">
+          CompFolks is a website dedicated to making sports statistics and
+          modeling accessible to the general public. CompFolks is not affiliated
+          with Major League Baseball or the Major League Baseball Players
+          Association. All names and likenesses are the property of their
+          respective associations, owners, and leagues.
+          <br /><br />
+
+          CompFolks, as well as anyone associated with the production of
+          CompFolks (referred to collectively as "CompFolks" for simplicity), is
+          in no way responsible for any decisions made by any user of the site,
+          including decisions made based on information gathered on the
+          CompFolks website. While CompFolks attempts to bring accurate
+          information to users, CompFolks makes no guarantee, implicitly or
+          explicitly, that any information displayed on any portion of the
+          website is accurate, or that any particular mathematical modeling
+          process is running correctly, or that any component of the website is
+          functioning as described, advertised, implied, or intended, or that
+          the results displayed are accuracte, correct, or consistent with what
+          the user has selected.
+          <br /><br />
+          If you or someone you know has a gambling problem and wants help, call
+          1-877-8-HOPENY or text HOPENY (467369).
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

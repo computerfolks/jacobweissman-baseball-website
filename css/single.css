@@ -1,0 +1,26 @@
+:root {
+  --main-dark-color: #050814;
+  --main-light-color: #ebedf9;
+  --main-primary-color: #881337;
+  --main-primary-darker-color: #6d0f2c;
+  --main-secondary-color: #99f6e4;
+  --main-secondary-darker-color: #7ac5b6;
+}
+
+select {
+  color: #050814;
+  color: var(--main-dark-color);
+}
+
+input {
+  color: #050814;
+  color: var(--main-dark-color);
+}
+
+.nameinput {
+  margin-bottom: 3em;
+}
+
+.teamname {
+  margin-bottom: 0em;
+}

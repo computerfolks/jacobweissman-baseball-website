@@ -1,0 +1,81 @@
+{% extends "app_bb/base.html" %} {% load static %} {% block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/beginner.css'%}" />
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div class="jumbotron custom-jumbotron center-block">
+        <h1 class="display-4">Beginner Tips</h1>
+        <p class="lead">Feeling overwhelmed or confused?<br />Read on!</p>
+        <hr class="my-4" />
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4 question-answer">
+          <h6 class="mb-3 question-header">How do I build a custom model?</h6>
+          <p class="answer-header">
+            Simply click on "Workshop", and fill out each tab (General, Batting,
+            Baserunning, Pitching, and Fielding). Then go to the "Submit" tab,
+            pick your variance, and click RUN THE MODEL!
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4 alt-question-answer">
+          <h6 class="mb-3 question-header">What do these stats mean?</h6>
+          <p class="answer-header">
+            In Workshop, we give a concise description of each stat, but a
+            complete description can typically be found with a quick google
+            search. We offer an extremely wide range of available statistics,
+            many of which only the most dedicated fans have heard about. To get
+            started, there is no harm in sticking with the stats you know.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4 question-answer">
+          <h6 class="mb-3 question-header">
+            What does “3-year weighted average” mean?
+          </h6>
+          <p class="answer-header">
+            Computer models typically use three-year weighted averages in order
+            to more accurately predict future results. This means considering
+            the past three seasons of data, while more heavily weighing more
+            recent seasons. A model relying solely on current-season data may be
+            more subject to small sample sizes and random fluctuations.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4 alt-question-answer">
+          <h6 class="mb-3 question-header">What are plus stats?</h6>
+          <p class="answer-header">
+            A "plus" stat is a stat that is adjusted for ballparks. For example,
+            a Colorado batter may appear to be better solely because they play
+            half their games in a hitter-friendly environment. Only some stats,
+            such as OBP and SLG, have plus alternatives.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4 question-answer">
+          <h6 class="mb-3 question-header">What is variance?</h6>
+          <p class="answer-header">
+            Variance is a measure of randomness. With a variance value of 0, a
+            model would give the favorite a 100% chance of winning every single
+            time. With an extremely high variance value, a model would give the
+            favorite a ~50% chance of winning every single time. It may take
+            experimentation to find the right variance value for your custom
+            model.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4 alt-question-answer">
+          <h6 class="mb-3 question-header">How does it all work?</h6>
+          <p class="answer-header">
+            You can use the model without understanding how the model operates.
+            That being said, for a complete explanation of how everything works,
+            see the
+            <a class="in-link" href="{% url 'info' %}">HOW IT WORKS</a> page.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
